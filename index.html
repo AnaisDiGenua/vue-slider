@@ -45,7 +45,7 @@
                     <!-- inizio immagini -->
                     <div class="card-container">
     
-                        <div class="card" v-for="(item, index) in items" :class="currentImg == index ? 'active-thumbnails' : '' ">
+                        <div class="card" v-for="(item, index) in items" :class="currentImg == index ? 'active-thumbnails' : '' " @click="selectImg(index)">
                             <img :src="item.image" alt="">
                         </div>
     
