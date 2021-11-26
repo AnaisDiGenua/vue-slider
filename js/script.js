@@ -10,7 +10,7 @@
 const app = new Vue({
     el: '#root',
     data: {
-        slider: [
+        items: [
             {
                 image: 'img/01.jpg',
                 title: 'Svezia',
@@ -36,10 +36,24 @@ const app = new Vue({
                 title: 'Paradise',
                 text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,'
             }
-        ]
+        ],
+        currentImg: 0
     },
     methods: {
-
+        nextImage: function() {
+            if(this.currentImg == this.items.length - 1) {
+                this.currentImg = 0;
+            } else {
+                this.currentImg++;
+            }
+        },
+        prevImage: function() {
+            if(this.currentImg == 0) {
+                this.currentImg = this.items.length - 1;
+            } else {
+                this.currentImg--;
+            } 
+        }
     }
 });
 

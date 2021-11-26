@@ -19,11 +19,9 @@
                     <!-- inizio immagini -->
                     <div class="items-container">
     
-                        <!-- parte che inserirò con js -->
-                        <!-- <div class="item">
-                            <img src="img/01.jpg" alt="">
-                        </div> -->
-                        <!-- /parte che inserirò con js -->
+                        <div class="item">
+                            <img :src="items[currentImg].image" alt="">
+                        </div> 
     
                     </div>
                     <!-- /immagini -->
@@ -37,21 +35,19 @@
                 <div class="thumbnails">
                     <!-- inizio pulsanti -->
                     <div class="previous-pic">
-                        <i class="fas fa-chevron-up"></i>
+                        <i class="fas fa-chevron-up" @click="prevImage()"></i>
                     </div>
                     <div class="next-pic">
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-down" @click="nextImage()"></i>
                     </div>
                     <!-- /pulsanti -->
     
                     <!-- inizio immagini -->
                     <div class="card-container">
     
-                        <!-- parte che inserirò con js -->
-                        <!-- <div class="card">
-                            <img src="img/01.jpg" alt="">
+                        <div class="card" v-for="(item, index) in items" :class="currentImg == index ? 'active-thumbnails' : '' ">
+                            <img :src="item.image" alt="">
                         </div>
-                        /parte che inserirò con js -->
     
                     </div>
                     <!-- /immagini -->
