@@ -46,7 +46,6 @@ const app = new Vue({
             } else {
                 this.currentImg++;
             }
-            this.resetPlay();
         },
         prevImage: function () {
             if (this.currentImg == 0) {
@@ -54,14 +53,12 @@ const app = new Vue({
             } else {
                 this.currentImg--;
             }
-            this.resetPlay();
         },
         selectImg: function (index) {
             this.currentImg = index;
         },
-        resetPlay: function () {
+        stopPlay: function () {
             clearInterval(this.timer);
-            this.play();
         },
         play: function () {
             let app = this;

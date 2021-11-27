@@ -16,7 +16,7 @@
                 <!-- inizio slider -->
                 <div class="slider">
                     <!-- container -->
-                    <div class="items-container">
+                    <div class="items-container" @mouseover="stopPlay()" @mouseleave="play()">
 
                         <!-- inizio immagine grande inserita con vue -->
                         <div class="item">
@@ -60,7 +60,7 @@
     
                 </div>
                 <!-- /thumbnails -->
-                
+
             </div>
         </div>
     </div>
