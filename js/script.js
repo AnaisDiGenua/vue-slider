@@ -10,8 +10,7 @@
 const app = new Vue({
     el: '#root',
     data: {
-        items: [
-            {
+        items: [{
                 image: 'img/01.jpg',
                 title: 'Svezia',
                 text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.'
@@ -37,40 +36,41 @@ const app = new Vue({
                 text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,'
             }
         ],
-        currentImg: 0
+        currentImg: 0,
+        timer: 0
     },
     methods: {
-        nextImage: function() {
-            if(this.currentImg == this.items.length - 1) {
+        nextImage: function () {
+            if (this.currentImg == this.items.length - 1) {
                 this.currentImg = 0;
             } else {
                 this.currentImg++;
             }
+            this.resetPlay();
         },
-        prevImage: function() {
-            if(this.currentImg == 0) {
+        prevImage: function () {
+            if (this.currentImg == 0) {
                 this.currentImg = this.items.length - 1;
             } else {
                 this.currentImg--;
-            } 
+            }
+            this.resetPlay();
         },
-        selectImg: function(index) {
+        selectImg: function (index) {
             this.currentImg = index;
+        },
+        resetPlay: function () {
+            clearInterval(this.timer);
+            this.play();
+        },
+        play: function () {
+            let app = this;
+            this.timer = setInterval(function () {
+                app.nextImage();
+            }, 3000);
         }
+    },
+    created: function () {
+        this.play();
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
