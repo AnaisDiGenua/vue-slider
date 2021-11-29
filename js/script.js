@@ -37,7 +37,7 @@ const app = new Vue({
             }
         ],
         currentImg: 0,
-        timer: 0
+        autoPlayId: null
     },
     methods: {
         nextImage: function () {
@@ -58,13 +58,17 @@ const app = new Vue({
             this.currentImg = index;
         },
         stopPlay: function () {
-            clearInterval(this.timer);
+            clearInterval(this.autoPlayId);
         },
         play: function () {
-            let app = this;
-            this.timer = setInterval(function () {
-                app.nextImage();
-            }, 3000);
+            this.autoPlayId = setInterval(() => {
+				this.nextImage();
+			}, 3000);
+            // oppure
+            // let self = this;
+            // this.autoPlayId = setInterval(function () {
+            //     self.nextImage();
+            // }, 3000);
         }
     },
     created: function () {
